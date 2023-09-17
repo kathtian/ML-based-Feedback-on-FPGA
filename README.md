@@ -12,7 +12,7 @@ Figure 2 illustrates the FPGA-based control system, which includes a Xilinx Zynq
 Notably, in this system, we intentionally utilize the actuators as a noise source to simulate environmental vibrations. These actuators are linked to a DAC on the control system, where they receive random data.
 
 ![image](https://github.com/kathtian/ML-based-Feedback-on-FPGA/assets/88470317/6edb203e-f3a2-4e1a-8dfe-31048e2477c5)
-:-: Figure 1. Optical system 
+: Figure 1. Optical system 
 
 ![image](https://github.com/kathtian/ML-based-Feedback-on-FPGA/assets/88470317/0063b5b3-6acd-48b6-a1c9-96b08813f1b9)
 Figure 2. FPGA-based control system
