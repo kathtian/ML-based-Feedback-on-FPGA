@@ -1,0 +1,25 @@
+#Tx Connection PV
+record(bi, "$(PriSys){$(DEV)}Txconn") {
+  field(DTYP, "PSC Ctrl Connected")
+  field(INP , "@CmdPort_$(DEV)")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "Disconnected")
+  field(ONAM, "Connected")
+  field(ZSV , "MAJOR")
+}
+
+#flush reg to socket buffer, trigger send to send all socket buffer to PSC
+record(longout, "$(PriSys){$(DEV)}regsend") {
+  field(DTYP, "PSC Ctrl Send")
+  field(OUT , "@CmdPort_$(DEV)")
+  field(VAL , "80")
+  field(FLNK, "$(PriSys){$(DEV)}send")
+}
+
+#Send all buffer to PSC
+record(bo, "$(PriSys){$(DEV)}send") {
+  field(DTYP, "PSC Ctrl Send All")
+  field(OUT , "@CmdPort_$(DEV)")
+  field(ZNAM, "Send")
+  field(ONAM, "Send")
+}

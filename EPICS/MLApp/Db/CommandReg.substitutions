@@ -1,0 +1,10 @@
+file CommandReg.template
+{pattern
+{CHAN,RegIndex,RegName,LOPR,HOPR,SCAN}
+{1,0,Vout1Reg,0,16383,".1 second"}
+{1,4,Vout2Reg,0,16383,Passive}
+{1,8,ADC_Sel,0,1,Passive}
+{1,12,DAC_Sel,0,1,Passive}
+{1,16,Matrix_Sel,0,5,Passive}
+{1,20,ADC_Clk_Cycles,0,1000000,Passive}
+}

@@ -1,0 +1,28 @@
+2022-10-11 18:18:59.881 WARNING [Thread 64] com.cosylab.epics.caj.impl.BroadcastTransport (send) - Failed to sent a datagram to:/192.168.86.255:5064
+java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.DatagramChannelImpl.send0(Native Method)
+	at java.base/sun.nio.ch.DatagramChannelImpl.sendFromNativeBuffer(DatagramChannelImpl.java:587)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:549)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:532)
+	at com.cosylab.epics.caj.impl.BroadcastTransport.send(BroadcastTransport.java:238)
+	at com.cosylab.epics.caj.impl.ChannelSearchManager.flushSendBuffer(ChannelSearchManager.java:233)
+	at com.cosylab.epics.caj.impl.ChannelSearchManager.access$200(ChannelSearchManager.java:20)
+	at com.cosylab.epics.caj.impl.ChannelSearchManager$ChannelSearchTimerTask.timeout(ChannelSearchManager.java:66)
+	at com.cosylab.epics.caj.util.SearchTimer$RunLoop.run(SearchTimer.java:251)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+2022-10-11 18:18:59.885 WARNING [Thread 64] com.cosylab.epics.caj.impl.BroadcastTransport (send) - Failed to sent a datagram to:/192.168.86.255:5064
+java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.DatagramChannelImpl.send0(Native Method)
+	at java.base/sun.nio.ch.DatagramChannelImpl.sendFromNativeBuffer(DatagramChannelImpl.java:587)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:549)
+	at java.base/sun.nio.ch.DatagramChannelImpl.send(DatagramChannelImpl.java:532)
+	at com.cosylab.epics.caj.impl.BroadcastTransport.send(BroadcastTransport.java:238)
+	at com.cosylab.epics.caj.impl.ChannelSearchManager.flushSendBuffer(ChannelSearchManager.java:233)
+	at com.cosylab.epics.caj.impl.ChannelSearchManager.access$200(ChannelSearchManager.java:20)
+	at com.cosylab.epics.caj.impl.ChannelSearchManager$ChannelSearchTimerTask.timeout(ChannelSearchManager.java:66)
+	at com.cosylab.epics.caj.util.SearchTimer$RunLoop.run(SearchTimer.java:251)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+2022-10-11 18:19:22.369 INFO [Thread 485] org.csstudio.diirt.util.RegisterDatasource (deregisterDatasource) - deregister Datasource:beast
+2022-10-11 18:19:22.370 INFO [Thread 485] org.csstudio.diirt.util.RegisterDatasource (deregisterDatasource) - deregister Datasource:archive

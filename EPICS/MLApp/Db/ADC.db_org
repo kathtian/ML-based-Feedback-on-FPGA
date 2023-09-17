@@ -1,0 +1,42 @@
+record(longin, "$(PriSys){$(DEV)}stsReg0")
+{
+        field(DESC, "Staus register:0")
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 0")
+	field(SCAN, "I/O Intr")
+	field(FLNK,"$(PriSys){$(DEV)}V1Calc1_")
+}
+
+record(longin, "$(PriSys){$(DEV)}stsReg1")
+{
+        field(DESC, "Staus register:1")
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 4")
+	field(SCAN, "I/O Intr")
+	field(FLNK,"$(PriSys){$(DEV)}V2Calc1_")
+}
+
+record(ai, "$(PriSys){$(DEV)}V1") {}
+record(ai, "$(PriSys){$(DEV)}V2") {}
+
+record(calc, "$(PriSys){$(DEV)}V1Calc1_") {
+	field(INPA,"$(PriSys){$(DEV)}stsReg0")	
+	field(CALC,"(A&0xFFFF0000)>>16")
+	field(FLNK,"$(PriSys){$(DEV)}V1Calc2_")
+	}
+record(calcout, "$(PriSys){$(DEV)}V1Calc2_") {
+	field(INPA,"$(PriSys){$(DEV)}V1Calc1_.VAL")	
+	field(CALC,"(A<32768)?(A*10.0/65535.0):((65535-A)*(-10.0/65535.0))")
+	field(OUT,"$(PriSys){$(DEV)}V1 PP")
+	}
+
+record(calc, "$(PriSys){$(DEV)}V2Calc1_") {
+	field(INPA,"$(PriSys){$(DEV)}stsReg1")	
+	field(CALC,"(A&0x0000FFFF)")
+	field(FLNK,"$(PriSys){$(DEV)}V2Calc2_")
+	}
+record(calcout, "$(PriSys){$(DEV)}V2Calc2_") {
+	field(INPA,"$(PriSys){$(DEV)}V2Calc1_.VAL")	
+	field(CALC,"(A<32768)?(A*10.0/65535.0):((65535-A)*(-10.0/65535.0))")
+	field(OUT,"$(PriSys){$(DEV)}V2 PP")	
+	}

@@ -1,0 +1,140 @@
+record(longin, "$(PriSys){$(DEV)}stsReg0")
+{
+        field(DESC, "Staus register:0")
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 0")
+	field(SCAN, "I/O Intr")
+	field(FLNK,"$(PriSys){$(DEV)}V1Calc1_")
+}
+
+record(longin, "$(PriSys){$(DEV)}stsReg1")
+{
+    field(DESC, "Staus register:1")
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 4")
+	field(SCAN, "I/O Intr")
+	field(FLNK,"$(PriSys){$(DEV)}V2Calc1_")
+}
+
+record(ai, "$(PriSys){$(DEV)}V1") {}
+record(ai, "$(PriSys){$(DEV)}V2") {}
+
+record(calc, "$(PriSys){$(DEV)}V1Calc1_") {
+	field(INPA,"$(PriSys){$(DEV)}stsReg0")	
+	field(CALC,"A>>16")
+	field(FLNK,"$(PriSys){$(DEV)}V1Calc2_")
+	}
+record(calcout, "$(PriSys){$(DEV)}V1Calc2_") {
+	field(INPA,"$(PriSys){$(DEV)}V1Calc1_.VAL")	
+	field(CALC,"(A<32768)?(A*20.0/65535.0):((65535-A)*(-20.0/65535.0))")
+	field(OUT,"$(PriSys){$(DEV)}V1 PP")
+	}
+
+record(calc, "$(PriSys){$(DEV)}V2Calc1_") {
+	field(INPA,"$(PriSys){$(DEV)}stsReg1")	
+	field(CALC,"(A&0x0000FFFF)")
+	field(FLNK,"$(PriSys){$(DEV)}V2Calc2_")
+	}
+record(calcout, "$(PriSys){$(DEV)}V2Calc2_") {
+	field(INPA,"$(PriSys){$(DEV)}V2Calc1_.VAL")	
+	field(CALC,"(A<32768)?(A*20.0/65535.0):((65535-A)*(-20.0/65535.0))")
+	field(OUT,"$(PriSys){$(DEV)}V2 PP")	
+	}
+
+
+
+record(ai, "$(PriSys){$(DEV)}adc1Float")
+{
+	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 8")
+	field(SCAN, "I/O Intr")	
+}
+
+record(ai, "$(PriSys){$(DEV)}adc2Float")
+{
+	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 12")
+	field(SCAN, "I/O Intr")	
+}
+
+record(ai, "$(PriSys){$(DEV)}Dac1Float")
+{
+	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 16")
+	field(SCAN, "I/O Intr")	
+}
+
+record(ai, "$(PriSys){$(DEV)}Dac2Float")
+{
+	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 20")
+	field(SCAN, "I/O Intr")	
+}
+
+record(longin, "$(PriSys){$(DEV)}adc1Int")
+{
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 24")
+	field(SCAN, "I/O Intr")	
+}
+record(longin, "$(PriSys){$(DEV)}adc2Int")
+{
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 28")
+	field(SCAN, "I/O Intr")	
+}
+record(longin, "$(PriSys){$(DEV)}Dac1Int")
+{
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 32")
+	field(SCAN, "I/O Intr")	
+}
+record(longin, "$(PriSys){$(DEV)}Dac2Int")
+{
+	field(DTYP, "PSC Reg")
+	field(INP , "@CmdPort_$(DEV) 80 36")
+	field(SCAN, "I/O Intr")	
+}
+
+
+record(ai, "$(PriSys){$(DEV)}mac1")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 40")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac2")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 44")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac3")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 48")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac4")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 52")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac5")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 56")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac6")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 60")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac7")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 64")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac8")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 68")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac9")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 72")
+	field(SCAN, "I/O Intr")	}
+record(ai, "$(PriSys){$(DEV)}mac10")
+{	field(DTYP, "PSC Reg F32")
+	field(INP , "@CmdPort_$(DEV) 80 76")
+	field(SCAN, "I/O Intr")	}
+

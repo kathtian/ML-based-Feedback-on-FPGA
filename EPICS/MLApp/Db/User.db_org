@@ -1,0 +1,27 @@
+record(ao, "$(PriSys){$(DEV)}Vout1") {
+  field(DESC, "Vout1 Control Voltage")
+  field(SCAN, ".01 second")
+  field(LOPR, "0")
+  field(HOPR, "10")
+  field(FLNK, "$(PriSys){$(DEV)}Vout1_Calcout")
+}
+
+record(calcout, "$(PriSys){$(DEV)}Vout1_Calcout") {
+  field(INPA, "$(PriSys){$(DEV)}Vout1")
+  field(OUT, "$(PriSys){$(DEV)}Vout1Reg PP")
+  field(CALC, "floor(A*65535/5)")
+  field(FLNK, "$(PriSys){$(DEV)}Vout2")
+}
+
+record(ao, "$(PriSys){$(DEV)}Vout2") {
+  field(DESC, "Vout2 Control Voltage")
+  field(LOPR, "-5")
+  field(HOPR, "5")
+  field(FLNK, "$(PriSys){$(DEV)}Vout2_Calcout")
+}
+
+record(calcout, "$(PriSys){$(DEV)}Vout2_Calcout") {
+  field(INPA, "$(PriSys){$(DEV)}Vout2")
+  field(OUT, "$(PriSys){$(DEV)}Vout2Reg PP")
+  field(CALC, "floor(A*65535/5)")
+}

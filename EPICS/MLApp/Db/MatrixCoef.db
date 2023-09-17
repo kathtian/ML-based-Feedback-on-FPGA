@@ -1,0 +1,38 @@
+record(waveform, "$(PriSys){$(DEV)}M1") {
+  field(DTYP, "PSC Block F32 Out")
+  field(INP, "@CmdPort_$(DEV)  81")
+  field(FTVL, "DOUBLE")  
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+  field(NELM, "210")  }
+record(waveform, "$(PriSys){$(DEV)}M2") {
+  field(DTYP, "PSC Block F32 Out")
+  field(INP, "@CmdPort_$(DEV)  82")
+  field(FTVL, "DOUBLE")  
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+  field(NELM, "210")  }
+record(waveform, "$(PriSys){$(DEV)}M3") {
+  field(DTYP, "PSC Block F32 Out")
+  field(INP, "@CmdPort_$(DEV)  83")
+  field(FTVL, "DOUBLE")  
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+  field(NELM, "210")  }
+record(waveform, "$(PriSys){$(DEV)}M4") {
+  field(DTYP, "PSC Block F32 Out")
+  field(INP, "@CmdPort_$(DEV)  84")
+  field(FTVL, "DOUBLE")  
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+  field(NELM, "210")  }
+record(waveform, "$(PriSys){$(DEV)}M5") {
+  field(DTYP, "PSC Block F32 Out")
+  field(INP, "@CmdPort_$(DEV)  85")
+  field(FTVL, "DOUBLE")  
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+  field(NELM, "210")  }
+record(waveform, "$(PriSys){$(DEV)}M6") {
+  field(DTYP, "PSC Block F32 Out")
+  field(INP, "@CmdPort_$(DEV)  86")
+  field(FTVL, "DOUBLE")  
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+  field(NELM, "210")  }
+
+

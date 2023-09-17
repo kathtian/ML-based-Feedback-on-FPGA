@@ -1,0 +1,8 @@
+record(longout, "$(PriSys){$(DEV)}$(RegName)") {
+  field(SCAN, "$(SCAN)")
+  field(HOPR,"$(HOPR)")
+  field(LOPR,"$(LOPR)")
+  field(DTYP, "PSC Reg")
+  field(OUT , "@CmdPort_$(DEV) 80 $(RegIndex)")
+  field(FLNK, "$(PriSys){$(DEV)}regsend")
+}
